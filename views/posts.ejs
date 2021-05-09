@@ -1,0 +1,54 @@
+<%-include("partials/header");-%>
+<div class="container">
+    <div class="py-5 text-center row">
+        <div class="emojis col-lg-1 col-md-2 col-2">
+            <a href="<%= reqURL%>/like"><img src="/images/love.png" alt=""><p><%=post.reactions.get("like")%></p></a>
+            <a href="<%= reqURL%>/funny"><img src="/images/laughing.png" alt=""><p><%=post.reactions.get("funny")%></p></a>
+            <a href="<%= reqURL%>/sad"><img src="/images/sad.png" alt=""> <p><%=post.reactions.get("sad")%></p></a>
+            <a href="<%= reqURL%>/angry"><img src="/images/angry.png" alt=""> <p><%=post.reactions.get("angry")%></p></a>
+        </div>
+        <div class="col-lg-5 col-md-10 col-10">
+            <div class="post-img">
+                <img class="img-post" src="<%=post.img%>" alt="" />
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-12 col-12">
+             <% if(post.edited){%> 
+                <p id="edited">Edited</p>
+             <% } %> 
+            <h1 class="post-heading"><%=post.title %></h1>
+            <p class="post-para">
+                <%-post.content %>
+            </p>
+        </div>
+    </div>
+    <div class="row comment-section">
+        <div class="col-lg-12">
+            <form  class = "compose-form"action="<%=reqURL %>" method="POST">
+                <div class="mb-3">
+                    <label for="comment" class="form-label post">Comment</label>
+                    <textarea class="form-control composeform-text" id="comment" rows="3" name="comment"></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-dark">Comment</button>
+                </div>
+                
+              </form>
+
+              <% post.comments.forEach(function(comment){ %>
+                     
+                <div class="comment-box form-control">
+                  
+                  <p><img src="/images/man.png" alt=""><%=comment.comment %></p>
+                      <%if(req.user&&(req.user.id.toString()=== post.author)){ %> 
+                     <a href="/delete/<%= post._id %>/<%= comment.id %>"><i class="fas fa-trash-alt delete"></i> </a>
+                      <% } %> 
+                
+                </div>
+
+             <% }) %>
+              
+        </div>
+    </div>
+</div>
+<%-include("partials/footer");-%>

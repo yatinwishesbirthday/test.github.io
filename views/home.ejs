@@ -1,0 +1,195 @@
+<%- include("partials/header")%>
+<section id="Title">
+    <div class="row land">
+        <div class="col-lg-7 col-md-6 col-sm-12 left">
+            <div class="main-heading">
+                <h1 class="left-item">
+                    Your place to be <span class="color-span">yourself</span>
+                </h1>
+            </div>
+            <div class="smline"></div>
+            <div class="sub-heading">
+                <p class="left-item">
+                    Share your secrets, true intentions, confessions, lies while being anonymous.
+                </p>
+            </div>
+            <div class="buttons left-item">
+                <% if(req.isAuthenticated()){ %>
+                <a class="btn btn-dark btn-lg" href="/logout" role="button"
+                    >Logout</a
+                >
+                <a
+                    class="btn btn-outline-dark btn-lg"
+                    href="/secrets"
+                    role="button"
+                    >Feed</a
+                >
+                <% }else{ %>
+                <a class="btn btn-dark btn-lg" href="/signup" role="button"
+                    >Signup</a
+                >
+                <a
+                    class="btn btn-outline-dark btn-lg"
+                    href="/login"
+                    role="button"
+                    >Login</a
+                >
+                <% } %>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-12 right">
+            <div id="video-plyr" class="right-item">
+                <video src="images/video5.mp4" autoplay loop muted></video>
+            </div>
+            <div id="black-box" class="right-item">
+                <p class="p-center right-item">
+                    It's strange how unknown people can sometimes understand you
+                    better than the close ones
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="Features">
+    <div class="container-fluid feature-dark">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 id="feature-h1">
+                    Express your
+                    <span class="color-span">true self</span> freely.
+                </h1>
+            </div>
+        </div>
+        <div class="row feature-row">
+            <div class="col-lg-4 col-md-6 col-sm-12 f-left">
+                <div class="img1 img-container"></div>
+            </div>
+            <div class="col-lg-8 col-md-6 col-sm-12 f-right">
+                <ul class="f-list">
+                    <li class="list-item">
+                        <span class="f-color-span li-span">Share</span>
+                        something intresting for others to read
+                    </li>
+                    <li class="list-item">
+                        <span class="f-color-span li-span">Share</span> your
+                        most embarrassing moments
+                    </li>
+                    <li class="list-item">
+                        <span class="f-color-span li-span">No</span> More
+                        Judgements
+                    </li>
+                    <li class="list-item">
+                        <span class="f-color-span li-span">No</span> hiding
+                        behind the mask
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section id="Impress">
+    <div class="container-fluid purple">
+        <div class="purple-text">
+            <img id="reveal"class="img2" src="images/Reveal2.png" alt="" />
+        </div>
+        <div id="mid">
+            <div class="l smline"></div>
+            <h1 id="your">YouR</h1>
+            <div class="r smline"></div>
+        </div>
+
+        <div class="purple-text">
+            <img id="story"class="img2" src="images/story2.png" alt="" />
+        </div>
+        <!-- <img class="splash" src="images/goldSplash.png" alt="">
+              <img class="splash2" src="images/goldSplash.png" alt=""> -->
+    </div>
+</section>
+
+<section id="Contact">
+    <div class="container-fluid">
+        <div class="row content">
+            <h1>Contact <span class="color-span">Us!</span></h1>
+            <div class="col-lg-3 col-sm-6 contact-left">
+                <div class="waysToContact">
+                    <div class="icon">
+                        <i class="far fa-envelope"></i>
+                    </div>
+                    <h4 class="contact-msg">Mail ME</h4>
+                </div>
+                <div class="waysToContact">
+                    <div class="icon">
+                        <a href="https://www.linkedin.com/in/abhay-gupta-253a45198/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <h4 class="contact-msg">Hire ME</h4>
+                </div>
+                <div class="waysToContact">
+                    <div class="icon">
+                        <a href="https://www.instagram.com/a_b_h_a_y_77/" target="_blank"><i class="fab fa-instagram"></i></a>
+                    </div>
+                    <h4 class="contact-msg">Follow ME</h4>
+                </div>
+                <div class="waysToContact">
+                    <div class="icon">
+                        <a href="https://github.com/Abhay-G" target="_blank"><i class="fab fa-github"></i></a>
+                    </div>
+                    <h4 class="contact-msg">Contribute</h4>
+                </div>
+            </div>
+            <div class="col-lg-3 col-sm-6 circle-container">
+                <div id="circle" class="img-container hello">
+                    <!-- <h3><span class="color-span">Say</span> Hello</h3> -->
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 contact-right">
+                <form
+                    class="contact-form"
+                    action="https://mailto:abhaygupta15153986@gmail.com"
+                    method="post"
+                    enctype="text/plain"
+                >
+                    <input
+                        class="contact-form-text"
+                        type="text"
+                        autocomplete="none"
+                        name="name"
+                        placeholder="Your Name"
+                    />
+                    <input
+                        class="contact-form-text"
+                        type="email"
+                        name="email"
+                        placeholder="Your Email"
+                    />
+                    <textarea
+                        class="contact-form-text"
+                        name="message"
+                        id=""
+                        cols="30"
+                        rows="5"
+                        placeholder="Message"
+                    ></textarea>
+
+                    <button class="btn btn-outline-dark btn-lg" type="submit">
+                        <i class="fas fa-arrow-right contact-arrow"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="Secret">
+    <div class="secrets">
+        <h2>See what others are saying</h2>
+        <div class="smline"></div>
+        <a href="/secrets"
+            ><img id="bino" src="images/binoculars.png" alt=""
+        /></a>
+        <p>Click</p>
+        <div class="smline"></div>
+    </div>
+</section>
+
+<%- include("partials/footer");-%>

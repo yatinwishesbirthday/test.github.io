@@ -1,0 +1,22 @@
+<%- include("partials/header");-%>
+<section class="form">
+    <div class="container form">
+        <form class="compose-form" action="<%=reqURL%>" method="POST">
+            <div class="mb-3">
+              <label for="title" class="form-label">Title</label>
+              <input type="text" class="form-control composeform-text" id="title" name="title" value="<%=title %>">
+            </div>
+            <div class="mb-3">
+                <label for="post" class="form-label post">Post</label>
+                <textarea class="form-control composeform-text" id="post" rows="3" name="content"><%=content%></textarea>
+            </div>
+            
+            <div class="text-center">
+                <button id="mytextarea"type="submit" class="btn btn-dark">Submit</button>
+            </div>
+            
+          </form>
+    </div>
+</section>
+<%- include("partials/footer");-%>
+

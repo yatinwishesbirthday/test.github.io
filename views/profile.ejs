@@ -1,0 +1,102 @@
+<%- include("partials/header");-%>
+<section class="py-5 text-center container compose">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Your Profile</h1>
+            <p class="lead text-muted p-center">Check out your posts.</p>
+            <img id="yellowgif" src="/images/cutegif.gif" alt="" />
+            <p class="p-center">
+                <a href="/compose" class="btn btn-dark my-2"
+                    >Add something new</a
+                >
+                <a href="/secrets" class="btn btn-outline-dark my-2"
+                >Checkout the feed</a
+            >
+            </p>
+            <img class="deco deco1" src="/images/hotair.png" alt="" />
+            <img class="deco deco2" src="/images/hotair.png" alt="" />
+            <img class="deco deco3" src="/images/hotair-blue.png" alt="" />
+            <img class="deco deco4" src="/images/hotair-orange.png" alt="" />
+            <% if(req.user.posts.length===0){ %> 
+            <img id="empty" src="/images/broke.png" alt="">
+            <p class="lead text-muted p-center">Your profile is empty. Please share something</p>
+            <% } %> 
+        </div>
+    </div>
+</section>
+<div class="album py-5 bg-light">
+    <div class="container">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <%  const characters ="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz" %> 
+            <%posts.forEach(function(post){%>
+                <% let id = "";for(let i=0; i<10; i++) id += characters.charAt(Math.floor(Math.random() * characters.length));%> 
+            <div class="col">
+                <div class="card shadow-sm mycard">
+                    <div class="card-img-container">
+                        <img src="<%= post.img %>"  class="card-img-top card-img" alt="">
+                    </div>
+                    <div class="card-body">
+                        <h5><%= post.title %></h5>
+                        <p class="card-text"><%= post.content.substring(0,100)+" . . ." %></p>
+                        <div
+                            class="d-flex justify-content-between align-items-center"
+                        >
+                            <div class="btn-group">
+                                <a
+                                    href="/posts/<%=post._id%>"
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary"
+                                >
+                                    View
+                                </a>
+                                <a
+                                    href="/edit/<%=post._id%>"
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary"
+                                >
+                                    Edit
+                                </a>
+                                <a  
+                                    href="#"
+                                    type="button"
+                                    class="btn btn-sm btn-outline-secondary"
+                                    data-toggle="modal" data-target="#<%=id %>"
+                                >
+                                   Delete
+                                </a>
+                                <div class="modal fade" id="<%=id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <h5 class="modal-title" id="exampleModalLabel">Warning</h5>
+                                          <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
+                                          </button>
+                                        </div>
+                                        <div class="modal-body">
+                                          Do you really want to delete <%= post.title %> 
+                                        </div>
+                                        <div class="modal-footer">
+                                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                          <form action="/delete/<%= post._id %>"  method="POST">
+                                            <button id="" type="submit" class="btn btn-warning">Delete</button>
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                            </div>
+                            
+                            <small class="text-muted"
+                                ><%= post.postedOn.toDateString()%>
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <% }); %>
+        </div>
+    </div>
+</div>
+
+<%- include("partials/footer");-%>

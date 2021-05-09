@@ -1,0 +1,108 @@
+<%- include("partials/header");-%>
+<section class="py-5 text-center container compose">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Compose</h1>
+            <p class="lead text-muted">
+                Write what's on your mind. Mumble it out!
+            </p>
+            <div id="video-plyr-compose">
+                <video src="images/video4.mp4" autoplay loop muted></video>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="form bg-light">
+    <div class="container form">
+        <form
+            class="compose-form"
+            action="/compose"
+            method="POST"
+            enctype="multipart/form-data"
+        >
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input
+                    type="text"
+                    class="form-control composeform-text"
+                    id="title"
+                    name="title"
+                />
+            </div>
+            <div class="mb-3">
+                <label for="post" class="form-label post">Post</label>
+                <textarea
+                    id="mytextarea"
+                    class="form-control composeform-text"
+                    id="post"
+                    rows="5"
+                    name="content"
+                ></textarea>
+            </div>
+            <div class="mb-3">
+                <label>Thumbnail</label>
+                <p>How do these make you feel</p>
+            </div>
+                <ul class="thumbnails row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <li>
+                      <input type="checkbox" id="myCheckbox1" class="radioCheck" name="image" value="culture1.jpg"  />
+                      <label for="myCheckbox1"><img src="/uploads/images/culture1.jpg" /></label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="myCheckbox2" class="radioCheck" name="image" value="calm2.jpg"  />
+                      <label for="myCheckbox2"><img src="/uploads/images/calm2.jpg"/></label>
+                    </li>
+                    <li>
+                      <input type="checkbox" id="myCheckbox3" class="radioCheck" name="image" value="tour1.jpg" />
+                      <label for="myCheckbox3"><img src="/uploads/images/tour1.jpg" /></label>
+                    </li>
+                    <li>
+                        <input type="checkbox" id="myCheckbox4" class="radioCheck" name="image" value="funny3.jpg" />
+                        <label for="myCheckbox4"><img src="/uploads/images/funny3.jpg"  /></label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="myCheckbox5" class="radioCheck" name="image" value="tour2.jpg"  />
+                        <label for="myCheckbox5"><img src="/uploads/images/tour2.jpg"/></label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="myCheckbox6" class="radioCheck" name="image" value="sad2.jpg" />
+                        <label for="myCheckbox6"><img src="/uploads/images/sad2.jpg" /></label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="myCheckbox7" class="radioCheck" name="image" value="running.gif" />
+                        <label for="myCheckbox7"><img src="/uploads/images/running.gif"  /></label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="myCheckbox8" class="radioCheck" name="image" value="shape.gif" />
+                        <label for="myCheckbox8"><img src="/uploads/images/shape.gif"/></label>
+                      </li>
+                      <li>
+                        <input type="checkbox" id="myCheckbox9" class="radioCheck" name="image" value="catgif.gif" />
+                        <label for="myCheckbox9"><img src="/uploads/images/catgif.gif" /></label>
+                      </li>
+                  </ul>
+                
+                  <div class="mb-3">
+                    <p>Or select from your device</p>
+                    <!-- <label for="image" class="form-label post">Upload image</label> -->
+                    <input
+                        type="file"
+                        name="image"
+                        id="image "
+                        class="form-control composeform-text"
+                    />
+                </div>
+            
+            <div class="text-center">
+                <button type="submit" class="btn btn-dark">Publish</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<div class="circle c comp-c5"></div>
+<div class="circle c comp-c4"></div>
+<div class="circle c comp-c3"></div>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="scripts/compose.js"></script>
+<%- include("partials/footer");-%>
